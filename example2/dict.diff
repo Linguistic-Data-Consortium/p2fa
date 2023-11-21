@@ -1,0 +1,63 @@
+--- example1/model/dict	2012-03-21 17:26:12.000000000 -0400
++++ example2/model/dict	2023-11-20 23:01:07.788303338 -0500
+@@ -127072,8 +127072,56 @@
+ {LG}  lg
+ {LS}  ls
+ {NS}  ns
+-{SL} sil
++{SL}  sil
++A-  AH0
++A-  EY1
++A-  AE1
++A-  AA1
++B-  B
++C-  K
++C-  S
++D-  D
++E-  EH1
++E-  AH0
++F-  F
++G-  G
++G-  JH
++H-  HH
++I-  IH1
++I-  AY1
++J-  JH
++K-  K
++L-  L
++M-  M
++N-  N
++O-  OW1
++O-  AO1
++P-  P
++Q-  K
++R-  R
++S-  S
++T-  T
++U-  Y UW1
++U-  AH1
++V-  V
++W-  W
++X-  EH1 K S
++Y-  Y
++Z-  Z
++HM  M
++HMM  M
++{BREATH}  br 
++{NOISE}  ns
++{NSV}  ns
++{LAUGH}  lg
++{LAUGHTER}  lg
++{COUGH}  cg
++{LIPSMACK}  ls
+ silence  sil
+-sp sp
+-!ENTER []
+-!EXIT []
++sp  sp
++PUNC,  sp
++PUNC.  sp
++PUNC?  sp
++[INAUDIBLE]  sil
++!ENTER  []
++!EXIT  []
