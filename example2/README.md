@@ -1,12 +1,14 @@
-# example2
-aligner variant used on TDF files
+# Example 2
 
-# Instructions
+This example uses p2fa with different I/O formats, and also handles OOV
+with the `g2p-en` python package.
 
-The docker file expects "htk" and "model" directories.  The model directory
-should be as found in the published aligner, and the recipe will make
-a slight alteration of the dictionary inside the image.  The included
-python script runs the aligner with a TDF transcript file.
+This example uses the aligner as available from Penn Phonetics.
+You need the "htk" and "model" directories.  The recipe makes a slight
+change to the dictionary, assuming the Penn Phonetics version.  If you happen to
+already have a modified dictionary, you should comment out the patch
+line in the Dockerfile.  This example provides a different python script,
+rather than using the Penn Phonetics script.
 
 You can build the image as follows; here we tag it with p2fa_example2.
 
@@ -17,13 +19,9 @@ One way to run the aligner from the image would be
     docker run -it --rm -v ~/dockermount:/mount p2fa_example2
 
 Before running this, a local directory `~/dockermount` was created with an audio
-file and a transcript.  The local directory could be anything, but the
-default command in the dockerfile expects it to be mounted to `/mount`, and
-expects files called `foo.wav` and `foo.tdf` in the local directory.  The label files are
-written to the same local directory, called `foo.align` and `foo.words`.  You can model other commands off of the default command.  For example, if you have files named `bar` instead, you could do
+file `foo.wav` and a transcript `foo.tdf`; `foo.align`, `foo.words`, and `foo.unks` go to the same directory.
+See the default command in the Dockerfile, which uses `/mount` as the working directory.
+You can model other commands off of the default command.  For example, if you have files named `bar` instead, you could do
 
     docker run -it --rm -v ~/dockermount:/mount p2fa_example2 python3 /app/aligner/align_tdf.py bar.wav bar.tdf bar.align bar.words
-
-The aligner supplements the included dictionary by running g2p on any unknown words, and also produces a `.unk` file with those
-unknown words.
 
