@@ -3,13 +3,6 @@
 This example uses p2fa with different I/O formats, and also handles OOV
 with the `g2p-en` python package.
 
-This example uses the aligner as available from Penn Phonetics.
-You need the "htk" and "model" directories.  The recipe makes a slight
-change to the dictionary, assuming the Penn Phonetics version.  If you happen to
-already have a modified dictionary, you should comment out the patch
-line in the Dockerfile.  This example provides a different python script,
-rather than using the Penn Phonetics script.
-
 You can build the image as follows; here we tag it with p2fa_example2.
 
     docker build -f example2/Dockerfile -t p2fa_example2 .

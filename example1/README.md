@@ -1,7 +1,6 @@
 # Example 1
 
 This example uses the aligner as available from Penn Phonetics.
-You need the "htk" and "model" directories, and "align.py".
 
 You can build the image as follows; here we tag it with p2fa_example1.
 
