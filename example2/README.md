@@ -12,7 +12,7 @@ rather than using the Penn Phonetics script.
 
 You can build the image as follows; here we tag it with p2fa_example2.
 
-    docker build -t p2fa_example2 .
+    docker build -f example2/Dockerfile -t p2fa_example2 .
 
 One way to run the aligner from the image would be 
 
