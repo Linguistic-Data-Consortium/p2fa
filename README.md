@@ -2,24 +2,38 @@
 
 Code for working with the Penn Phonetics Lab Forced Aligner (p2fa)
 
-# Dependencies
+# Introduction
 
-In general, these examples expect you to download and unpack libraries
-yourself, and then run docker to build images with those libraries.
+The Penn Phonetics Lab Forced Aligner is still available from the Lab website:
 
-# Aligner
+    https://web.sas.upenn.edu/phonetics-lab/facilities/
 
-The examples assume you have the aligner from the Penn Phonetics Lab,
-or some equivalent.  Specifically the "model" directory is expected.
-Example 1 also expects the python code from that package, but the other
-examples provide different python code.
+From its documentation:
+
+    P2FA can be cited as:
+    Jiahong Yuan and Mark Liberman. 2008. Speaker identification on the SCOTUS corpus. Proceedings of Acoustics '08.
+
+For full documentation, see that package.  This repo contains the primary components of p2fa and
+additional code for working with it.  The following checksum file documents the exact zip file
+from that website that was the basis for this repo:
+
+    sums/Penn-Phonetics-forced-aligner-2d2jfwb.zip.md5
+
+# Model Directory
+
+The "model" directory, copied here from the Phonetics Lab release, contains
+the model files for English, as well as a version of the CMU pronouncing dictionary,
+documented with this checksum file:
+
+    sums/model.md5
 
 # HTK
 
-The examples assume an "htk" directory with version 3.4.1 of HTK.
+HTK version 3.4.1 must be acquired separately.  The docker recipes assume the presence of the unpacked "htk" directory.
 
-# Docker
+# Docker Examples
 
-You should have some experience with docker.  Each example shows a basic
-way of building and using an image.
+This repo is designed to be used with docker, and contains several examples.  Each example contains a Dockerfile
+and a readme with example commands, which are meant to be run from the current directory, not the example directories.
+If you prefer not to use docker, the recipes serve as documentation for configuring your environment.
 

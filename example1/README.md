@@ -5,7 +5,7 @@ You need the "htk" and "model" directories, and "align.py".
 
 You can build the image as follows; here we tag it with p2fa_example1.
 
-    docker build -t p2fa_example1 .
+    docker build -f example1/Dockerfile -t p2fa_example1 .
 
 One way to run the aligner from the image would be 
 
