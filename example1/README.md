@@ -6,14 +6,17 @@ You can build the image as follows; here we tag it with p2fa_example1.
 
     docker build -f example1/Dockerfile -t p2fa_example1 .
 
-One way to run the aligner from the image would be 
+You can test the code as follows:
 
-    docker run -it --rm -v ~/dockermount:/mount p2fa_example1
+    docker run -it --rm -v ./test:/mount p2fa_example1 python /app/aligner/align.py CarrieFisher10s.wav CarrieFisher10s.txt CarrieFisher10s.TextGrid
 
-Before running this, a local directory `~/dockermount` was created with an audio
-file `foo.wav` and a transcript `foo.txt`; `foo.TextGrid` goes to the same directory.
-See the default command in the Dockerfile, which uses `/mount` as the working directory.
-You can model other commands off of the default command.  For example, if you have files named `bar` instead, you could do
+This mounts the local `test` dir onto the working directory of the container, `/mount`, and runs the aligner on the test audio and transcript.  The output should be identicial to the reference file, so the following should produce no output:
 
-    docker run -it --rm -v ~/dockermount:/mount p2fa_example1 python /app/aligner/align.py bar.wav bar.txt bar.TextGrid
+    diff test/CarrieFisher10s.TextGrid.example1 test/CarrieFisher10s.TextGrid
+
+For convenience, these commands can be run with:
+
+    example1/test.sh
+
+
 

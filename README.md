@@ -29,11 +29,25 @@ documented with this checksum file:
 
 # HTK
 
-HTK version 3.4.1 must be acquired separately.  The docker recipes assume the presence of the unpacked "htk" directory.
+HTK version 3.4.1 must be acquired separately.  Other version may work but haven't been tested.  The docker recipes assume the presence of the unpacked "htk" directory in the current directory.
 
 # Docker Examples
 
 This repo is designed to be used with docker, and contains several examples.  Each example contains a Dockerfile
 and a readme with example commands, which are meant to be run from the current directory, not the example directories.
-If you prefer not to use docker, the recipes serve as documentation for configuring your environment.
+If you prefer not to use docker, the recipes serve as documentation for configuring your environment.  Most users should skip to Example 3, the most useful version, while Examples 1 and 2 are provided for historical reference.
+
+## Example 1
+
+Example 1 represents the aligner as available from Penn Phonetics.  See details in that [README](example1/README.md).
+
+## Example 2
+
+Example 2 represents one of the many updated, but now obsolete, versions used at Penn.  See details in that [README](example2/README.md).
+
+## Example 3
+
+Example 3 represents the current version, see that [README](example3/README.md).
+
+
 

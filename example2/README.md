@@ -1,20 +1,19 @@
 # Example 2
 
-This example uses p2fa with different I/O formats, and also handles OOV
-with the `g2p-en` python package.
+This example uses p2fa with different I/O formats, and also handles unknown words
+with the `g2p-en` python package.  It's only relevant to people who may have used this code or one of the many similar versions that were used at Penn.
 
 You can build the image as follows; here we tag it with p2fa_example2.
 
     docker build -f example2/Dockerfile -t p2fa_example2 .
 
-One way to run the aligner from the image would be 
+You can test the code as follows:
 
-    docker run -it --rm -v ~/dockermount:/mount p2fa_example2
+    docker run -it --rm -v ./test:/mount p2fa_example2 python /app/aligner/align_tdf.py CarrieFisher10s.wav CarrieFisher10s.tdf CarrieFisher10s.align CarrieFisher10s.words
 
-Before running this, a local directory `~/dockermount` was created with an audio
-file `foo.wav` and a transcript `foo.tdf`; `foo.align`, `foo.words`, and `foo.unks` go to the same directory.
-See the default command in the Dockerfile, which uses `/mount` as the working directory.
-You can model other commands off of the default command.  For example, if you have files named `bar` instead, you could do
+This mounts the local `test` dir onto the working directory of the container, `/mount`, and runs the aligner on the test audio and transcript.  The output is nearly identical to the test output of example3 which uses Phonetisaurus, only differing on the one unknown word, Leia.  The differences can be seen in `test/diff.example2`.  The differences to Example 3 were saved rather than Example 2 reference files, since most people won't be interested in Example 2.  The test is automated with:
 
-    docker run -it --rm -v ~/dockermount:/mount p2fa_example2 python3 /app/aligner/align_tdf.py bar.wav bar.tdf bar.align bar.words
+    example2/test.sh
+
+If successful, there won't be any diff output, only two output lines from `align_tdf.py`.  See the test script if necessary.
 
